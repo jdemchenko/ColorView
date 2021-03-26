@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     
     
     private func changeColorOfView() {
-        colorView.backgroundColor = .init(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        colorView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
     }
     private func setColorsOfSliders() {
         redSlider.minimumTrackTintColor = .red
