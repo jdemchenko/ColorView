@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         colorView.layer.cornerRadius = 20
         setColorsOfSliders()
         showValueOfSliders()
+        changeColorOfView()
     }
     
     
