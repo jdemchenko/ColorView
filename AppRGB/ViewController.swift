@@ -51,9 +51,9 @@ class ViewController: UIViewController {
         blueSlider.minimumTrackTintColor = .blue
     }
     private func showValueOfSliders() {
-        valueOfRedSlider.text = String(Int(redSlider.value * 255))
-        valueOfGreenSlider.text = String(Int(greenSlider.value * 255))
-        valueOfBlueSlider.text = String(Int(blueSlider.value * 255))
+        valueOfRedSlider.text = String(format: "%.2f", redSlider.value)
+        valueOfGreenSlider.text = String(format: "%.2f", greenSlider.value)
+        valueOfBlueSlider.text = String(format: "%.2f", blueSlider.value)
     }
 
 }
