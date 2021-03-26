@@ -14,13 +14,28 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kisspng-rgb-color-model-color-chart-primary-color-colors-5ab9f1bc752099.4179435915221354844798" translatesAutoresizingMaskIntoConstraints="NO" id="LBY-Rz-DnX">
+                                <rect key="frame" x="32" y="-385.5" width="350" height="1667"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LBY-Rz-DnX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DnN-PN-44m"/>
+                            <constraint firstItem="LBY-Rz-DnX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="FAw-Zn-0Jo"/>
+                            <constraint firstItem="LBY-Rz-DnX" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="25:64" id="Zjf-ib-aui"/>
+                            <constraint firstItem="LBY-Rz-DnX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="dDc-bq-gWj"/>
+                            <constraint firstItem="LBY-Rz-DnX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fFa-ce-6Sq"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="kisspng-rgb-color-model-color-chart-primary-color-colors-5ab9f1bc752099.4179435915221354844798" width="1667" height="1667"/>
+    </resources>
 </document>

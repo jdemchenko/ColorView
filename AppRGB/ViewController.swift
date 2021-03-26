@@ -56,9 +56,9 @@ class ViewController: UIViewController {
         blueSlider.thumbTintColor = .blue
     }
     private func showValueOfSliders() {
-        valueOfRedSlider.text = String(round(100 * redSlider.value) / 100)
-        valueOfGreenSlider.text = String(round(100 * greenSlider.value) / 100)
-        valueOfBlueSlider.text = String(round(100 * blueSlider.value) / 100)
+        valueOfRedSlider.text = String(Int(redSlider.value * 255))
+        valueOfGreenSlider.text = String(Int(greenSlider.value * 255))
+        valueOfBlueSlider.text = String(Int(blueSlider.value * 255))
     }
 
     
