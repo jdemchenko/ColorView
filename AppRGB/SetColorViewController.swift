@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SetColorViewController: UIViewController {
     
     @IBOutlet weak var valueOfRedSlider: UILabel!
     @IBOutlet weak var valueOfGreenSlider: UILabel!
@@ -19,11 +19,17 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var colorView: UIView!
     
+    var colorViewFromColorVC: UIColor!
+    var delegate: SetColorViewControllerDelegate!
+    var red: CGFloat!
+    var green: CGFloat!
+    var blue: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         colorView.layer.cornerRadius = 20
         setColorsOfSliders()
+        setSliders()
         showValueOfSliders()
         changeColorOfView()
     }
@@ -42,15 +48,35 @@ class ViewController: UIViewController {
         showValueOfSliders()
     }
     
+    @IBAction func doneBtnPressed() {
+        delegate.setNewValues(for: colorView.backgroundColor ?? .white, andRgb: red, green: green, blue: blue)
+        dismiss(animated: true)
+    }
+    
+    private func setSliders() {
+        redSlider.value = Float(red)
+        greenSlider.value = Float(green)
+        blueSlider.value = Float(blue)
+    }
     
     private func changeColorOfView() {
-        colorView.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        red = CGFloat(redSlider.value)
+        green = CGFloat(greenSlider.value)
+        blue = CGFloat(blueSlider.value)
+        colorView.backgroundColor = UIColor(
+            red: red,
+            green: green,
+            blue: blue,
+            alpha: 1
+        )
     }
+    
     private func setColorsOfSliders() {
         redSlider.minimumTrackTintColor = .red
         greenSlider.minimumTrackTintColor = .green
         blueSlider.minimumTrackTintColor = .blue
     }
+    
     private func showValueOfSliders() {
         valueOfRedSlider.text = String(format: "%.2f", redSlider.value)
         valueOfGreenSlider.text = String(format: "%.2f", greenSlider.value)
@@ -58,4 +84,5 @@ class ViewController: UIViewController {
     }
 
 }
+
 
