@@ -8,21 +8,13 @@
 import UIKit
 
 protocol SetColorViewControllerDelegate {
-    func setNewValues(
-        for view: UIColor,
-        andRgb red: CGFloat,
-        green: CGFloat,
-        blue: CGFloat
-    )
+    func setNewValues( for view: UIColor )
 }
 
 class ColorViewController: UIViewController {
 
     @IBOutlet var colorView: UIView!
     
-    var red: CGFloat?
-    var green: CGFloat?
-    var blue: CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +24,11 @@ class ColorViewController: UIViewController {
         guard let setColorVC = segue.destination as? SetColorViewController else { return }
         setColorVC.colorViewFromColorVC = colorView.backgroundColor
         setColorVC.delegate = self
-        setColorVC.red = red ?? 1
-        setColorVC.green = green ?? 1
-        setColorVC.blue = blue ?? 1
     }
 }
 
 extension ColorViewController: SetColorViewControllerDelegate {
-    func setNewValues(for view: UIColor, andRgb red: CGFloat, green: CGFloat, blue: CGFloat) {
+    func setNewValues(for view: UIColor) {
         colorView.backgroundColor = view
-        self.red = red
-        self.green = green
-        self.blue = blue
     }
 }

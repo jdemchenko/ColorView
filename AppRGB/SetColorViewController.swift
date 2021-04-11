@@ -21,9 +21,7 @@ class SetColorViewController: UIViewController {
     
     var colorViewFromColorVC: UIColor!
     var delegate: SetColorViewControllerDelegate!
-    var red: CGFloat!
-    var green: CGFloat!
-    var blue: CGFloat!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,24 +47,21 @@ class SetColorViewController: UIViewController {
     }
     
     @IBAction func doneBtnPressed() {
-        delegate.setNewValues(for: colorView.backgroundColor ?? .white, andRgb: red, green: green, blue: blue)
+        delegate.setNewValues(for: colorView.backgroundColor ?? .white)
         dismiss(animated: true)
     }
     
     private func setSliders() {
-        redSlider.value = Float(red)
-        greenSlider.value = Float(green)
-        blueSlider.value = Float(blue)
+        redSlider.value = Float(colorViewFromColorVC.rgba.red)
+        greenSlider.value = Float(colorViewFromColorVC.rgba.green)
+        blueSlider.value = Float(colorViewFromColorVC.rgba.blue)
     }
     
     private func changeColorOfView() {
-        red = CGFloat(redSlider.value)
-        green = CGFloat(greenSlider.value)
-        blue = CGFloat(blueSlider.value)
         colorView.backgroundColor = UIColor(
-            red: red,
-            green: green,
-            blue: blue,
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
             alpha: 1
         )
     }
@@ -83,6 +78,18 @@ class SetColorViewController: UIViewController {
         valueOfBlueSlider.text = String(format: "%.2f", blueSlider.value)
     }
 
+}
+
+extension UIColor {
+    var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+        return (red, green, blue, alpha)
+    }
 }
 
 
